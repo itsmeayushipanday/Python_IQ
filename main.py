@@ -82,6 +82,11 @@ for i in list:
 #odd number: 5
 #odd number: 7
 
+#########PASS###########
+def myfn():
+    pass
+myfn() #NO ERROR
+
 ##########GLOBAL VARIABLES #####
 x=10
 def ayushi():
@@ -98,6 +103,3 @@ obj = hello()
 print(obj._protected_var)
 #output 20
 
-def myfn():
-    pass
-myfn()
