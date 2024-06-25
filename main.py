@@ -1,3 +1,5 @@
+#https://chatgpt.com/share/415afd9f-1d71-4a08-864d-eaadfe10dbff
+
 # Class definition init constructor
 class hello:
     def __init__(self, fname, lname, age):
