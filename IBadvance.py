@@ -1,3 +1,5 @@
+#https://chatgpt.com/share/4dae9783-aad2-4587-af2f-9b12d602d616
+
 ##############LIST COMPREHENSION#############
 
 my_list = [1,2,3,4,5]
