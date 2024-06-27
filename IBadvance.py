@@ -145,9 +145,110 @@ filter_lambda = list(filter(lambda x : x%2 == 0, filter1))
 #    print(f"Error deleting '{file_name}': {e.strerror}")
 
 
+#########args#################
+
+def fn(a, b, *args):
+    mul = a*b
+    for num in args:
+        mul *= num
+    return mul
+#print(fn(1,2,3,4,5))  120
+
+##########kargs #########
+
+def fn(**kargs):
+    for key, value in kargs.items():
+        print(key + ": " + value)
+#fn(Name = "Ayushi Panday", Like="Music")  
+#Name: Ayushi Panday
+#Like: Music
+
+
+###########JOIN AND SPLIT ###########
+text = "My name is Ayushi Panday"
+word = text.split()
+ans = "-".join(word)
+#print(word)
+#print(ans)
+#['My', 'name', 'is', 'Ayushi', 'Panday']
+#My-name-is-Ayushi-Panday
+        
+
+#################ITERATOR################
+
+list1 = [1,2,3,4,5]
+iter_list = iter(list1)
+#print(next(iter_list))
+#print(next(iter_list))
+#1
+#2
+
+
+##########PASS BY VALUE AND PASS BY REFERENCE################################
+def fn(arr):
+    arr.append(10)
+arr = [1,2,3,4,5]
+#print(arr)  #pass by value 
+#fn(arr)
+#print(arr) #pass by reference
+
+
+#import math
+#print(dir(math))
+
+
+############GENERATORS########
+
+def fib(n):
+    p, q = 0, 1
+    while(p<n):
+        yield p
+        p, q = q, p+q
+
+for num in fib(10):
+    print(num)
+
+#0
+#1
+#1
+#2
+#3
+#5
+#8
+
+
+##############SHALLOW COPY##############
+import copy
+list1 = [1,2,[3,4]]
+shallow_copy = copy.copy(list1)
+#shallow_copy[2][0] = 10
+#print(list1)          [1, 2, [10, 4]]
+#print(shallow_copy)      [1, 2, [10, 4]]
+
+#This modifies the nested list [3, 4] within shallow_copy to [10, 4].
+#Since both list1 and shallow_copy share the same reference to the nested list [3, 4], 
+#any modification made to this nested list through shallow_copy will also affect list1.
+#Therefore, list1 is now [1, 2, [10, 4]].
 
 
 
+shallow_copy[0] = 50
+#print(list1)        [1, 2, [3, 4]]
+#print(shallow_copy) [50,2,[3, 4]]
+#When you modify shallow_copy[0], you are assigning a new integer object (50) to that 
+#position in shallow_copy. list1 still retains the original integer 1 in its first position.
 
 
 
+list2 = [1,2,[3,4]]
+deep_copy = copy.deepcopy(list2)
+
+deep_copy[2][0] = 10
+
+#print(list2)   [1, 2, [3, 4]]
+#print(deep_copy)     [1, 2, [10, 4]]
+
+#shallow me nested objects ki copy nahi bnti..isliye shallow-copy me change krne se 
+#original me bhi change
+#but deep copy me nested objects ki copy bnti hain..toh deep_copy me chnage krne se 
+#original me change nahi hoga
